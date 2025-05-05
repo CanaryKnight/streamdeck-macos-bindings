@@ -1,0 +1,51 @@
+{
+	"Name": "macos-binings",
+	"Version": "0.1.0.4",
+	"Author": "CanaryKnight",
+	"Actions": [
+		{
+			"UUID": "com.canaryknight.macos-binings.spotlight",
+			"Name": "Spotlight",
+			"Tooltip": "Open Spotlight",
+			"Icon": "imgs/actions/search",
+			"States": [
+				{
+					"Image": "imgs/actions/search",
+					"Title": "Spotlight"
+				}
+			]
+		},
+		{
+			"UUID": "com.canaryknight.macos-binings.lock",
+			"Name": "Lock Screen",
+			"Tooltip": "Lock the screen",
+			"Icon": "imgs/actions/lock",
+			"States": [
+				{
+					"Image": "imgs/actions/lock",
+					"Title": "Lock"
+				}
+			]
+		}
+	],
+	"Category": "macos-binings",
+	"CategoryIcon": "imgs/plugin/icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Macos system binings",
+	"Icon": "imgs/plugin/icon",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "com.canaryknight.macos-binings"
+}
