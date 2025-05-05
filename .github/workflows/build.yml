@@ -34,6 +34,13 @@ jobs:
           streamdeck pack --force
           mv *.streamDeckPlugin ../../
 
+      - name: ✅ Ensure plugin file exists
+        run: |
+          if [ ! -f ./*.streamDeckPlugin ]; then
+            echo "❌ Plugin file not found!"
+            exit 1
+          fi
+
       - name: ✂️ Extract changelog section
         run: |
           python3 scripts/extract_changelog.py CHANGELOG.md ${{ github.ref_name }} RELEASE_NOTES.md
