@@ -28,18 +28,15 @@ jobs:
       - name: 🚀 Install Stream Deck CLI
         run: yarn global add @elgato/cli
 
+      # Упаковка без перемещения
       - name: 📦 Pack plugin
         run: |
           cd com.canaryknight.macos-binings.sdPlugin
           streamdeck pack --force
-          mv *.streamDeckPlugin ../../
 
       - name: ✅ Ensure plugin file exists
         run: |
-          if [ ! -f ./*.streamDeckPlugin ]; then
-            echo "❌ Plugin file not found!"
-            exit 1
-          fi
+          test -f com.canaryknight.macos-binings.sdPlugin/*.streamDeckPlugin
 
       - name: ✂️ Extract changelog section
         run: |
@@ -48,10 +45,10 @@ jobs:
       - name: 📤 Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          fail_on_unmatched_files: true
           name: ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
           body_path: RELEASE_NOTES.md
-          files: ./*.streamDeckPlugin
+          files: com.canaryknight.macos-binings.sdPlugin/*.streamDeckPlugin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
